@@ -1,6 +1,6 @@
 package nasch.prestabanco.simulation_service.controllers;
 
-import nasch.prestabanco.services.SimulationService;
+import nasch.prestabanco.simulation_service.services.SimulationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +19,6 @@ public class SimulationController {
     public ResponseEntity<Double> simulateCredit(@RequestParam("amount") long amount,
                                                  @RequestParam("interest_rate") float interest_rate,
                                                  @RequestParam("term") int term) {
-        return ResponseEntity.ok(loanService.mortgageCreditSimulation(amount, interest_rate, term));
+        return ResponseEntity.ok(simulationService.mortgageCreditSimulation(amount, interest_rate, term));
     }
 }

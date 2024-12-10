@@ -1,6 +1,6 @@
 package nasch.prestabanco.totalcost_service.controllers;
 
-import nasch.prestabanco.services.TotalcostService;
+import nasch.prestabanco.totalcost_service.services.TotalcostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +12,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/total_cost")
 public class TotalcostController {
+    @Autowired
+    TotalcostService totalcostService;
+
     @PostMapping("/")
     public ResponseEntity<Double> costCalculation(@PathVariable long amount,
                                                   @PathVariable float interest_rate,
@@ -19,6 +22,6 @@ public class TotalcostController {
                                                   @PathVariable float desgravament,
                                                   @PathVariable float admin_cor_por,
                                                   @RequestParam(required = false) int... secure) {
-        return ResponseEntity.ok(loanService.totalCostCalculation(amount, interest_rate, term, desgravament, admin_cor_por, secure));
+        return ResponseEntity.ok(totalcostService.totalCostCalculation(amount, interest_rate, term, desgravament, admin_cor_por, secure));
     }
 }
