@@ -18,7 +18,7 @@ public class LoanService {
         return (ArrayList<LoanEntity>) loanRepository.findAll();
     }
 
-    public LoanEntity getByRut(String rut) {
+    public ArrayList<LoanEntity> getByRut(String rut) {
         return loanRepository.findByRut(rut);
     }
 

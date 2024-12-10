@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -29,8 +30,8 @@ public class    LoanController {
     }
 
     @GetMapping("/{rut}")
-    public ResponseEntity<LoanEntity> getLoanRut(@PathVariable String rut) {
-        LoanEntity loan = loanService.getByRut(rut);
+    public ResponseEntity<List<LoanEntity>> getLoanRut(@PathVariable String rut) {
+        ArrayList<LoanEntity> loan = loanService.getByRut(rut);
         return ResponseEntity.ok(loan);
     }
 

@@ -6,11 +6,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.ArrayList;
 
 @Repository
 public interface LoanRepository extends JpaRepository<LoanEntity, Long> {
-    public LoanEntity findByRut(String rut);
+    public ArrayList<LoanEntity> findByRut(String rut);
     public LoanEntity findByState(String state);
 }
 

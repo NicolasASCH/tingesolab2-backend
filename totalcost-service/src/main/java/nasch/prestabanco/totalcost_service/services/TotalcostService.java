@@ -10,7 +10,9 @@ import java.util.ArrayList;
 @Service
 public class TotalcostService {
     public double totalCostCalculation(long amount, float interest_rate, int term, float desgravament, float admin_com_por, int... secure) {
-        double monthly_fee = mortgageCreditSimulation(amount, interest_rate, term);
+        float r = (interest_rate / 12) / 100;
+        int n = term * 12;
+        double monthly_fee = amount * ((r * Math.pow((1 + r), n)) / (Math.pow((1 + r), n) - 1));
 
         float sec_desgravament = amount * desgravament;
 
