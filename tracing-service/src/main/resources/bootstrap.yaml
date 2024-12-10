@@ -7,7 +7,7 @@ spring:
       uri: http://localhost:8081
   datasource:
     url: jdbc:postgresql://localhost:5432/dbprestabanco2
-    username: postgre
+    username: postgres
     password: newpassword
   jpa:
     hibernate:
