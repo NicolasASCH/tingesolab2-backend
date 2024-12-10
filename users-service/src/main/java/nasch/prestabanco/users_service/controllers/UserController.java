@@ -33,7 +33,7 @@ public class UserController {
                                                @RequestParam("name") String name,
                                                @RequestParam("email") String email,
                                                @RequestParam(value = "document", required = false) MultipartFile document) throws IOException {
-        byte[] documentData = document.getBytes();
+        byte[] documentData = document != null ? document.getBytes() : null;
 
         UserEntity userNew = userService.saveUser(null, rut, name, email, documentData);
         return ResponseEntity.ok(userNew);
