@@ -10,6 +10,9 @@ import java.util.ArrayList;
 @Service
 public class TotalcostService {
     public double totalCostCalculation(long amount, float interest_rate, int term) {
+        if (amount <= 0.0 || interest_rate <= 0.0 || term <= 0) {
+            throw new IllegalArgumentException("Ingrese valores en los parametros que no sean 0");
+        }
         float r = (interest_rate / 12) / 100;
         int n = term * 12;
         double monthly_fee = amount * ((r * Math.pow((1 + r), n)) / (Math.pow((1 + r), n) - 1));
