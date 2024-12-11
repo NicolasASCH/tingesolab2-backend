@@ -14,8 +14,6 @@ public class TotalcostService {
         int n = term * 12;
         double monthly_fee = amount * ((r * Math.pow((1 + r), n)) / (Math.pow((1 + r), n) - 1));
 
-        int totalPaymentsMonth = term * 12;
-
         double sec_desgravament = amount * (0.03 / 100);
 
         double fire_insurance = 20000;
@@ -24,6 +22,6 @@ public class TotalcostService {
 
         double monthly_cost = monthly_fee + sec_desgravament + fire_insurance;
 
-        return (monthly_cost * totalPaymentsMonth) + admin_com;
+        return (monthly_cost * n) + admin_com;
     }
 }
