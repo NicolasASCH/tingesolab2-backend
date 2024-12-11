@@ -18,10 +18,7 @@ public class TotalcostController {
     @PostMapping("/")
     public ResponseEntity<Double> costCalculation(@PathVariable long amount,
                                                   @PathVariable float interest_rate,
-                                                  @PathVariable int term,
-                                                  @PathVariable float desgravament,
-                                                  @PathVariable float admin_cor_por,
-                                                  @RequestParam(required = false) int... secure) {
-        return ResponseEntity.ok(totalcostService.totalCostCalculation(amount, interest_rate, term, desgravament, admin_cor_por, secure));
+                                                  @PathVariable int term) {
+        return ResponseEntity.ok(totalcostService.totalCostCalculation(amount, interest_rate, term));
     }
 }
