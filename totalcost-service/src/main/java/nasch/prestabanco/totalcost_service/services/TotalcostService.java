@@ -9,17 +9,18 @@ import java.util.ArrayList;
 
 @Service
 public class TotalcostService {
-    public double totalCostCalculation(long amount, float interest_rate, int term, float desgravament, float admin_com_por, int... secure) {
+    public double totalCostCalculation(long amount, float interest_rate, int term) {
         float r = (interest_rate / 12) / 100;
         int n = term * 12;
         double monthly_fee = amount * ((r * Math.pow((1 + r), n)) / (Math.pow((1 + r), n) - 1));
 
-        float sec_desgravament = amount * desgravament;
+        double sec_desgravament = amount * (0.03 / 100);
 
-        double admin_com = amount * admin_com_por;
+        double fire_insurance = 20000;
 
-        double monthly_cost = monthly_fee + sec_desgravament;
-        for (int i : secure) monthly_cost += i;
+        double admin_com = amount * 0.01;
+
+        double monthly_cost = monthly_fee + sec_desgravament + fire_insurance;
 
         return monthly_cost + admin_com;
     }
